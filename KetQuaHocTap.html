@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Kết quả học tập</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand ps-3" href="index.html">Menu</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                            Trang chủ
+                        </a>
+                        <a class="nav-link" href="ThongTinSV.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Thông tin sinh viên
+                        </a>
+                        <a class="nav-link" href="KetQuaHocTap.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Kết quả học tập
+                        </a>
+                        <a class="nav-link" href="DangKyMonHoc.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Đăng ký môn học
+                        </a>
+                        <a class="nav-link" href="LichHoc.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar"></i></div>
+                            Lịch học
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Đăng nhập với tư cách:</div>
+                    Sinh viên
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Kết quả học tập</h1>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table"></i> Tất cả các môn học
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Môn học</th>
+                                        <th>Số tín</th>
+                                        <th>Điểm thành phần</th>
+                                        <th>Điểm thi</th>
+                                        <th>Thang điểm 4</th>
+                                        <th>Kết quả</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body">
+                                    <tr>
+                                        <td>Cấu trúc dữ liệu</td>
+                                        <td class="credits">3</td>
+                                        <td class="scores">7.5|10</td>
+                                        <td class="exam-score">8.0</td>
+                                        <td>0.0</td>
+                                        <td>Qua môn</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cơ sở dữ liệu</td>
+                                        <td class="credits">3</td>
+                                        <td class="scores">6.0|9.5</td>
+                                        <td class="exam-score">7.0</td>
+                                        <td>0.0</td>
+                                        <td>Qua môn</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lập trình hướng đối tượng</td>
+                                        <td class="credits">3</td>
+                                        <td class="scores">9.0|8.5</td>
+                                        <td class="exam-score">7.0</td>
+                                        <td>0.0</td>
+                                        <td>Qua môn</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kỹ thuật số</td>
+                                        <td class="credits">3</td>
+                                        <td class="scores">4.5|2.0</td>
+                                        <td class="exam-score">3.0</td>
+                                        <td>0.0</td>
+                                        <td>Qua môn</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pháp luật đại cương</td>
+                                        <td class="credits">3</td>
+                                        <td class="scores">6.0|6.5</td>
+                                        <td class="exam-score">5.0</td>
+                                        <td>0.0</td>
+                                        <td>Qua môn</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kinh tế chính trị Mác - Lênin</td>
+                                        <td class="credits">2</td>
+                                        <td class="scores">8.0|7.5</td>
+                                        <td class="exam-score">5.5</td>
+                                        <td>0.0</td>
+                                        <td>Qua môn</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tổng số tín:</strong> <span id="tong-so-tin">0</span></td>
+                                        <td colspan="3"></td>
+                                        <td><strong>GPA:</strong> <span id="gpa">0.0</span></td>
+                                        <td colspan="1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+    function tinhKetQua() {
+    let tongSoTin = 0;
+    let tongDiem4 = 0;
+    let soMon = 0;
+
+    const tinElements = document.querySelectorAll(".credits");
+    const diemThanhPhanElements = document.querySelectorAll(".scores");
+    const diemThiElements = document.querySelectorAll(".exam-score");
+    const thangDiem4Elements = document.querySelectorAll("td:nth-child(5)");
+    const ketQuaElements = document.querySelectorAll("td:nth-child(6)");
+
+    tinElements.forEach((tinEl, index) => {
+        const soTin = parseInt(tinEl.innerText);
+        const diemThanhPhan = diemThanhPhanElements[index].innerText.split("|").map(parseFloat);
+        const diemThi = parseFloat(diemThiElements[index].innerText);
+
+        const diemTB = diemThanhPhan[0] * 0.1 + diemThanhPhan[1] * 0.4 + diemThi * 0.5;
+        let diem4 = 0;
+
+        if (diemTB >= 8.5) {
+            diem4 = 4.0;
+        } else if (diemTB >= 8.0) {
+            diem4 = 3.5;
+        } else if (diemTB >= 7.0) {
+            diem4 = 3.0;
+        } else if (diemTB >= 6.5) {
+            diem4 = 2.5;
+        } else if (diemTB >= 5.5) {
+            diem4 = 2.0;
+        } else if (diemTB >= 5.0) {
+            diem4 = 1.5;
+        } else if (diemTB >= 4.5) {
+            diem4 = 1.0;
+        } else {
+            diem4 = 0.0;
+        }
+
+        tongSoTin += soTin;
+        tongDiem4 += diem4 * soTin;
+        soMon += 1;
+
+        thangDiem4Elements[index].innerText = diem4.toFixed(1);
+
+        ketQuaElements[index].innerText = diem4 > 0 ? "Qua môn" : "Trượt môn";
+    });
+
+    const gpa = tongDiem4 / tongSoTin;
+    document.getElementById("tong-so-tin").innerText = tongSoTin;
+    document.getElementById("gpa").innerText = gpa.toFixed(2);
+    }
+
+    document.addEventListener("DOMContentLoaded", tinhKetQua);
+    </script>
+</body>
+</html>
